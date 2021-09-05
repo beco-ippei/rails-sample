@@ -85,5 +85,3 @@ test:
 production:
   <<: *default
   database: pg_rails_production
-  username: pg_rails
-  password: <%= ENV['PG_RAILS_DATABASE_PASSWORD'] %>
