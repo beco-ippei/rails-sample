@@ -84,5 +84,5 @@ test:
 production:
   <<: *default
   database: pg_rails_production
-  password: pg
+  password: postgres
 
