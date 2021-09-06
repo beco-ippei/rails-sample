@@ -22,6 +22,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
   username: postgres
+  password: postgres
 
 development:
   <<: *default
@@ -84,5 +85,4 @@ test:
 production:
   <<: *default
   database: pg_rails_production
-  password: postgres
 
