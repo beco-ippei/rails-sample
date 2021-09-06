@@ -22,9 +22,11 @@ set :deploy_to, "/var/www/rails-sample"
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
+append :linked_files, "config/master.key"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, ".bundle"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -43,12 +45,12 @@ namespace :deploy do
   task :confirm do
     on roles(:app) do
       puts "This stage is '#{fetch(:stage)}'. Deploying branch is '#{fetch(:branch)}'."
-      puts 'Are you sure? [y/n]'
-      ask :answer, 'n'
-      if fetch(:answer) != 'y'
-        puts 'deploy stopped'
-        exit
-      end
+      #puts 'Are you sure? [y/n]'
+      #ask :answer, 'n'
+      #if fetch(:answer) != 'y'
+      #  puts 'deploy stopped'
+      #  exit
+      #end
     end
   end
 
