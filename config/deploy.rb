@@ -25,7 +25,8 @@ set :deploy_to, "/var/www/rails-sample"
 append :linked_files, "config/master.key", 'puma.rb'
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets"
+append :linked_dirs, 'public/uploads'
 append :linked_dirs, ".bundle"
 
 # Default value for default_env is {}
