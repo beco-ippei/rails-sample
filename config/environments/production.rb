@@ -119,12 +119,14 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   # exception notifier
-  Rails.application.config.middleware.use ExceptionNotification::Rack,
-    slack: {
-      webhook_url: 'https://hooks.slack.com/services/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',
-      channel: '#test',
-      additional_parameters: {
-        icon_emoji: 'unicorn_face',
+  if slack_webhook = Rails.application.credentials.slack_webhook
+    Rails.application.config.middleware.use ExceptionNotification::Rack,
+      slack: {
+        webhook_url: slack_webhook,
+        channel: '#test',
+        additional_parameters: {
+          icon_emoji: 'unicorn_face',
+        }
       }
-    }
+  end
 end
